@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./",
+      "module": "commonjs",
+      "target": "es6",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "declaration": true,
+      "removeComments": false,
+      "noImplicitAny": false,
+      "rootDir": ".",
+      "outDir": "./dist",
+      "allowJs": true,
+      "typeRoots": [
+        "./node_modules/@types"
+      ],
+      "types": [
+        "cypress-commands",
+        "cypress",
+        "@types/testing-library__cypress",
+        "@types/node"
+      ],
+      "resolveJsonModule": true,
+      "esModuleInterop": true
+    },
+    "include": [
+      "./cypress/**/*.ts",
+      "./cypress/support/commands.js"
+    ],
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  }
+   

@@ -1,0 +1,55 @@
+{
+    "name": "auxo-e2e",
+    "description": "auxo e2e tests",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "",
+    "license": "ISC",
+    "scripts": {
+        "prepare": "husky install",
+        "lint": "tslint ./cypress/**/**/**/*.ts -c tslint.json ./cypress/**/*.ts ./cypress/**/**/*.ts cypress.config.ts ./cypress/support/**.js stylish",
+        "test:develop": "npx cypress run --env NODE_ENV=develop --spec cypress/e2e/admin/**.feature",
+        "open:develop": "npx cypress open --env NODE_ENV=develop",
+        "test:prod": "npx cypress run --env NODE_ENV=production --spec cypress/e2e/admin/**.feature",
+        "open:prod": "npx cypress open --env NODE_ENV=production"
+    },
+    "cypress-cucumber-preprocessor": {
+        "nonGlobalStepDefinitions": false,
+        "cucumberJson": {
+            "generate": true,
+            "outputFolder": "cypress/cucumber-json",
+            "filePrefix": "",
+            "fileSuffix": ".cucumber"
+        }
+    },
+    "dependencies": {
+        "browserify": "^16.2.3",
+        "moment": "^2.29.4",
+        "tsify": "^5.0.4"
+    },
+    "devDependencies": {
+        "@cypress/browserify-preprocessor": "^3.0.2",
+        "@types/cypress-cucumber-preprocessor": "^4.0.1",
+        "@types/node": "^16.11.10",
+        "@types/testing-library__cypress": "^5.0.9",
+        "cypress": "^10.11.0",
+        "cypress-commands": "^2.0.1",
+        "cypress-cucumber-preprocessor": "^4.3.0",
+        "cypress-plugin-tab": "^1.0.5",
+        "dotenv": "^8.1.0",
+        "tslint": "5.5.0",
+        "tslint-eslint-rules": "4.1.1",
+        "tslint-microsoft-contrib": "5.0.0",
+        "typescript": "^4.4.3",
+        "husky": "8.0.3",
+        "@commitlint/cli": "^12.1.4",
+        "@commitlint/config-conventional": "^12.1.4",
+        "lint-staged": "^11.0.1",
+        "prettier": "2.3.2"
+    },
+    "husky": {
+        "hooks": {
+          "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+      }
+}
